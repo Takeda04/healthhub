@@ -4,18 +4,24 @@ import { Ionicons } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 import { ThemedView } from "@/components/ThemedView";
 import { ThemedText } from "@/components/ThemedText";
+import { useThemeColor } from "@/hooks/useThemeColor";
 
 const Header = () => {
+
+  const backgroundColor = useThemeColor({}, 'background');
+  const borderBottomColor = useThemeColor({}, 'background');
+  const textColor = useThemeColor({}, 'text');
+  const tintColor = useThemeColor({}, 'tint');
   return (
-    <ThemedView style={styles.headerContainer}>
-      <ThemedText style={styles.headerText}>
+    <ThemedView style={[styles.headerContainer, { backgroundColor, borderBottomColor }]}>
+      <ThemedText style={[styles.headerText, { color: textColor }]}>
         Find your desire healt solution
       </ThemedText>
       <TouchableOpacity>
         <Ionicons
           name="notifications-outline"
           size={24}
-          color={Colors.dark.black}
+          color={tintColor}
         />
       </TouchableOpacity>
     </ThemedView>

@@ -4,6 +4,7 @@ import { Colors } from '@/constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import { ThemedView } from '@/components/ThemedView';
 import { useColorScheme } from '@/hooks/useColorScheme.web';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 interface Category {
   id: string;
@@ -21,12 +22,15 @@ const categories: Category[] = [
 
 const MedicalCategories = () => {
 
-    const colorScheme = useColorScheme();
+  const backgroundColor = useThemeColor({}, 'background');
+  const textColor = useThemeColor({}, 'text');
+  const tintColor = useThemeColor({}, 'tint');
+  const shadowColor = useThemeColor({}, 'icon');
   return (
-    <ThemedView style={styles.categoriesContainer}>
+    <ThemedView style={[styles.categoriesContainer, {backgroundColor}]}>
       {categories.map((category) => (
-        <TouchableOpacity key={category.id} style={styles.categoryCard}>
-          <Ionicons name={category.icon} size={24} color={Colors.light.green} />
+        <TouchableOpacity key={category.id} style={[styles.categoryCard, { shadowColor }]}>
+          <Ionicons name={category.icon} size={24} color={tintColor} />
         </TouchableOpacity>
       ))}
     </ThemedView>

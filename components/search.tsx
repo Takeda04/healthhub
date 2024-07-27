@@ -2,13 +2,18 @@ import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 import { Colors } from '@/constants/Colors';
 import { ThemedView } from '@/components/ThemedView';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 const SearchInput = () => {
+
+  const borderColor = useThemeColor({}, 'icon');
+  const backgroundColor = useThemeColor({}, 'background');
+  const textColor = useThemeColor({}, 'text');
   return (
-    <ThemedView style={styles.searchContainer}>
+    <ThemedView style={[styles.searchContainer, {backgroundColor}]}>
       <TextInput
         placeholder="Search..."
-        placeholderTextColor={Colors.dark.black}
+        placeholderTextColor={borderColor}
         style={styles.searchInput}
       />
     </ThemedView>
