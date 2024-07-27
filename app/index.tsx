@@ -1,34 +1,21 @@
-import { Image, SafeAreaView, View } from "react-native";
-import { Colors } from "@/constants/Colors";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
-import { Stack } from "expo-router";;
+import { useRouter } from "expo-router";
+import { useEffect, useState } from "react";
 
-const Home = () => {
-  return (
-    <SafeAreaView>
-      <Stack.Screen options={{
-        headerStyle: {
-          backgroundColor: Colors.light.background,
-        },
+import Main from "./screens/main"; 
+import Start from "./screens/start";
 
-        headerTitle: "",
-        headerShadowVisible: false
-      }}>
 
-      </Stack.Screen>
-      <ThemedView style={{
-        width: "100%",
-        height: "100%",
-        backgroundColor: Colors.light.background,
-        justifyContent: "center",
-        alignItems: "center"
-      }}>
-        <Image source={require("@/assets/images/LogoApp.png")}/>
+export default function Index() {
+  const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(true);
 
-      </ThemedView>
-    </SafeAreaView>
-  );
-};
+  useEffect(() => {
 
-export default Home;
+  }, [router]);
+
+
+
+  return !loading ? <Start/> : <Main />;
+}
+
+
