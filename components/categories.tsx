@@ -1,14 +1,16 @@
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
-import { Colors } from '@/constants/Colors';
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { Colors } from '@/constants/Colors';
 import { ThemedView } from '@/components/ThemedView';
-import { useColorScheme } from '@/hooks/useColorScheme.web';
 import { useThemeColor } from '@/hooks/useThemeColor';
+
+// Define the icon names correctly
+type IconName = keyof typeof Ionicons.glyphMap;
 
 interface Category {
   id: string;
-  icon: string;
+  icon: IconName;
   text: string;
 }
 
@@ -16,18 +18,17 @@ const categories: Category[] = [
   { id: '1', icon: 'heart-outline', text: 'Cardiology' },
   { id: '2', icon: 'medkit-outline', text: 'General Medicine' },
   { id: '3', icon: 'business-outline', text: 'Pharmacy' },
-  { id: '4', icon: 'puzzle-outline', text: 'Services' },
+  { id: '4', icon: 'pulse-outline', text: 'Services' }, // Use a valid icon name here
   // Add more categories as needed
 ];
 
 const MedicalCategories = () => {
-
   const backgroundColor = useThemeColor({}, 'background');
-  const textColor = useThemeColor({}, 'text');
   const tintColor = useThemeColor({}, 'tint');
   const shadowColor = useThemeColor({}, 'icon');
+
   return (
-    <ThemedView style={[styles.categoriesContainer, {backgroundColor}]}>
+    <ThemedView style={[styles.categoriesContainer, { backgroundColor }]}>
       {categories.map((category) => (
         <TouchableOpacity key={category.id} style={[styles.categoryCard, { shadowColor }]}>
           <Ionicons name={category.icon} size={24} color={tintColor} />
@@ -42,8 +43,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    padding: 16,
-    backgroundColor: "#fff"
+    padding: 10,
+    backgroundColor: "#fff",
   },
   categoryCard: {
     width: 64,
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
-  }
+  },
 });
 
 export default MedicalCategories;
