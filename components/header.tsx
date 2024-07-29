@@ -10,11 +10,11 @@ const Header = () => {
 
   const backgroundColor = useThemeColor({}, 'background');
   const borderBottomColor = useThemeColor({}, 'background');
-  const textColor = useThemeColor({}, 'text');
   const tintColor = useThemeColor({}, 'tint');
+  const titleColor = useThemeColor({}, "black");
   return (
     <ThemedView style={[styles.headerContainer, { backgroundColor, borderBottomColor }]}>
-      <ThemedText style={[styles.headerText, { color: textColor }]}>
+      <ThemedText style={[styles.headerText, { color: titleColor }]}>
         Find your desire healt solution
       </ThemedText>
       <TouchableOpacity>

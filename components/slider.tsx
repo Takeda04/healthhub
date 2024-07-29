@@ -26,7 +26,7 @@ const Slider: React.FC<SliderProps> = ({ data }) => {
         scrolled = 0;
       }
       scrollViewRef.current?.scrollTo({ x: scrollValue, animated: true });
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [data.length, width]);

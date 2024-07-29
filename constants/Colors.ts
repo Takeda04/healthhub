@@ -8,7 +8,8 @@ const tintColorDark = '#fff';
 
 export const Colors = {
   light: {
-    text: '#11181C',
+    black: "#000",
+    text: '#199A8E',
     background: '#fff',
     tint: tintColorLight,
     icon: '#687076',
@@ -18,7 +19,7 @@ export const Colors = {
     lineColor: "#E8F3F1"
   },
   dark: {
-    black: "#000",
+    black: "#fff",
     text: '#ECEDEE',
     background: '#199A8E',
     tint: tintColorDark,

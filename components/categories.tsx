@@ -31,7 +31,7 @@ const MedicalCategories = () => {
     <ThemedView style={[styles.categoriesContainer, { backgroundColor }]}>
       {categories.map((category) => (
         <TouchableOpacity key={category.id} style={[styles.categoryCard, { shadowColor }]}>
-          <Ionicons name={category.icon} size={24} color={tintColor} />
+          <Ionicons name={category.icon} size={24} style={[styles.icon, {}]}/>
         </TouchableOpacity>
       ))}
     </ThemedView>
@@ -61,6 +61,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 8,
   },
+  icon: {
+    color: Colors.light.green
+  }
 });
 
 export default MedicalCategories;
