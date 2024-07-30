@@ -1,9 +1,19 @@
-import { Colors } from '@/constants/Colors';
-import { CardData } from '@/types/types';
-import React, { useRef, useEffect } from 'react';
-import { View, ScrollView, Animated, Dimensions, StyleSheet, Text } from 'react-native';
+import { Colors } from "@/constants/Colors";
+import { CardData } from "@/types/types";
+import React, { useRef, useEffect } from "react";
+import {
+  View,
+  ScrollView,
+  Animated,
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  Alert,
+  Image,
+} from "react-native";
 
-const { width } = Dimensions.get('window');
+const { width } = Dimensions.get("window");
 
 interface SliderProps {
   data: CardData[];
@@ -49,11 +59,11 @@ const Slider: React.FC<SliderProps> = ({ data }) => {
             <View style={styles.contentContainer}>
               <View style={styles.textContainer}>
                 <Text style={styles.title}>{item.title}</Text>
-                <Text style={styles.subtitle}>{item.subtitle}</Text>
+                <TouchableOpacity onPress={() => Alert.alert("Clicked", 'asasas')}>
+                  <Text style={styles.button}>{item.button}</Text>
+                </TouchableOpacity>
               </View>
-              <View style={styles.iconContainer}>
-                {item.icon}
-              </View>
+              <Image source={require("@/assets/images/nurse.png")}/>
             </View>
           </View>
         ))}
@@ -72,41 +82,49 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginHorizontal: (width - 335) / 2,
     backgroundColor: Colors.light.lineColor, // Customize card background color
-    borderColor: Colors.light.green, // Border color
-    borderWidth: 2, // Border width
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     padding: 10,
+    borderWidth: 1,
+    borderColor: Colors.light.green, 
     elevation: 2, // Shadow for Android
-    shadowColor: '#000', // Shadow for iOS
+    shadowColor: "#000", // Shadow for iOS
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
   },
   contentContainer: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
   },
   textContainer: {
     flex: 1,
     paddingRight: 40, // Space for the icon
   },
   title: {
+    width: 169,
+    height: 50,
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 4,
   },
-  subtitle: {
-    fontSize: 14,
-    color: '#666',
+  button: {
+    width: 97,
+    height: 35,
+    borderRadius: 20,
+    backgroundColor: Colors.light.green,
+    color: "#fff",
+    fontWeight: "bold",
+    textAlign: "center",
+    paddingTop: 5,
   },
   iconContainer: {
-    position: 'absolute',
+    position: "absolute",
     right: 10,
-    top: '50%',
+    top: "50%",
     transform: [{ translateY: -20 }], // Adjust the vertical center position
   },
 });

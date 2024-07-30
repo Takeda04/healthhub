@@ -23,14 +23,14 @@ const Main = () => {
 
   const data: CardData[] = [
     {
-      title: "Card Title 1",
-      subtitle: "Card Subtitle 1",
-      icon: <Ionicons name="star" size={24} color="black" />,
+      title: "Early protection for your family health",
+      button: "Learn more",
+      image: "../assets/images/nurse.png",
     },
     {
       title: "Card Title 2",
-      subtitle: "Card Subtitle 2",
-      icon: <Ionicons name="heart" size={24} color="black" />,
+      button: "Learn more",
+      image: "../assets/images/nurse.png",
     },
     // Add more card data here
   ];
