@@ -12,7 +12,7 @@ const SearchInput = () => {
   return (
     <ThemedView style={[styles.searchContainer, {backgroundColor}]}>
       <TextInput
-        placeholder="Search..."
+        placeholder="Qidirish..."
         placeholderTextColor={borderColor}
         style={styles.searchInput}
       />

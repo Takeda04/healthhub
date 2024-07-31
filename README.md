@@ -1,50 +1,69 @@
-# Welcome to your Expo app 👋
+Medical Services Project - Uzbekistan
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Welcome to the Medical Services Project for Uzbekistan! This project aims to make healthcare services more accessible and efficient for people in Uzbekistan. Utilizing AI technology, the project provides a virtual doctor to assist users in diagnosing health issues and finding the best medical services.
 
-## Get started
+Table of Contents
+Introduction
+Features
+Installation
+Usage
+Contributing
+License
+Contact
+Introduction
+This project is designed to simplify the process of accessing medical services in Uzbekistan. With the help of AI, users can interact with a virtual doctor to get preliminary diagnoses and recommendations for medical services. Our goal is to enhance the healthcare experience and ensure everyone has access to quality medical care.
 
-1. Install dependencies
+Features
+AI Doctor: Interact with an AI-powered virtual doctor for preliminary health assessments.
+Medical Clinics: Find the nearest medical clinics and view their services.
+Doctors List: Access a comprehensive list of doctors along with their specializations.
+Search Functionality: Easily search for doctors, clinics, and medical services.
+User-friendly Interface: Intuitive and easy-to-use interface for a seamless experience.
+Installation
+To install and run this project locally, follow these steps:
 
-   ```bash
-   npm install
-   ```
+Clone the repository:
 
-2. Start the app
+sh
+Copy code
+git clone https://github.com/yourusername/medical-services-uzbekistan.git
+Navigate to the project directory:
 
-   ```bash
-    npx expo start
-   ```
+sh
+Copy code
+cd medical-services-uzbekistan
+Install dependencies:
 
-In the output, you'll find options to open the app in a
+sh
+Copy code
+npm install
+Start the application:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+sh
+Copy code
+npm start
+Usage
+Once the application is up and running, you can use the following features:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+AI Doctor: Start a conversation with the AI doctor to describe your symptoms and get a preliminary diagnosis.
+Find Clinics: Browse through the list of clinics to find the nearest one offering the services you need.
+Search for Doctors: Use the search bar to find doctors based on specialization, location, and availability.
+Medical Services: Explore various medical services offered by different clinics.
+Contributing
+We welcome contributions from the community! To contribute, please follow these steps:
 
-## Get a fresh project
+Fork the repository.
+Create a new branch (git checkout -b feature-branch).
+Make your changes and commit them (git commit -m 'Add new feature').
+Push to the branch (git push origin feature-branch).
+Create a Pull Request.
+License
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
-When you're ready, run:
+Contact
+If you have any questions or suggestions, please feel free to contact us at info@medicalservices.uz.
 
-```bash
-npm run reset-project
-```
+Made with ❤️ in Uzbekistan.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+We hope this project helps make healthcare more accessible and efficient for everyone in Uzbekistan! 🚀

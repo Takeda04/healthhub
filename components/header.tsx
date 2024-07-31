@@ -7,22 +7,19 @@ import { ThemedText } from "@/components/ThemedText";
 import { useThemeColor } from "@/hooks/useThemeColor";
 
 const Header = () => {
-
-  const backgroundColor = useThemeColor({}, 'background');
-  const borderBottomColor = useThemeColor({}, 'background');
-  const tintColor = useThemeColor({}, 'tint');
+  const backgroundColor = useThemeColor({}, "background");
+  const borderBottomColor = useThemeColor({}, "background");
+  const tintColor = useThemeColor({}, "tint");
   const titleColor = useThemeColor({}, "black");
   return (
-    <ThemedView style={[styles.headerContainer, { backgroundColor, borderBottomColor }]}>
+    <ThemedView
+      style={[styles.headerContainer, { backgroundColor, borderBottomColor }]}
+    >
       <ThemedText style={[styles.headerText, { color: titleColor }]}>
-        Find your desire healt solution
+        O'zingizning sog'lom yechimingizni toping
       </ThemedText>
       <TouchableOpacity>
-        <Ionicons
-          name="notifications-outline"
-          size={24}
-          color={tintColor}
-        />
+        <Ionicons name="notifications-outline" size={24} color={tintColor} />
       </TouchableOpacity>
     </ThemedView>
   );
@@ -41,7 +38,7 @@ const styles = StyleSheet.create({
   headerText: {
     width: 176,
     height: 64,
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: "bold",
     color: Colors.light.text,
   },

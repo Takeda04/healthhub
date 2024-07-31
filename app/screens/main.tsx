@@ -1,5 +1,5 @@
 import PillCard from "@/components/PillCard";
-import MedicalCategories from "@/components/categories";
+import MedicalCategories from "@/components/categories/MedicalCategories";
 import DoctorCard from "@/components/doctorComponent";
 import HeadCategory from "@/components/headcategory";
 import Header from "@/components/header";
@@ -23,13 +23,13 @@ const Main = () => {
 
   const data: CardData[] = [
     {
-      title: "Early protection for your family health",
-      button: "Learn more",
+      title: "Oilangiz salomatligi uchun erta himoya",
+      button: "Batafsil ma'lumot",
       image: "../assets/images/nurse.png",
     },
     {
-      title: "Card Title 2",
-      button: "Learn more",
+      title: "Har bir bemor ichida o'z shifokori bor",
+      button: "Batafsil ma'lumot",
       image: "../assets/images/nurse.png",
     },
     // Add more card data here
@@ -48,8 +48,8 @@ const Main = () => {
         <MedicalCategories />
         <Slider data={data} />
         <HeadCategory
-          title="Doctors"
-          linkText="See all"
+          title="Shifokorlar"
+          linkText="Hammasini ko'rish"
           onLinkPress={navigateToDoctorsList}
         />
         <ScrollView
@@ -69,8 +69,8 @@ const Main = () => {
           ))}
         </ScrollView>
         <HeadCategory
-          title="Health article"
-          linkText="See all"
+          title="Dorixona"
+          linkText="Hammasini ko'rish"
           onLinkPress={navigateToDoctorsList}
         />
         <ScrollView

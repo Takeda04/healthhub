@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   title: {
     width: 169,
     height: 50,
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: "bold",
     marginBottom: 4,
   },
@@ -116,12 +116,14 @@ const styles = StyleSheet.create({
     height: 35,
     borderRadius: 20,
     backgroundColor: Colors.light.green,
+    display: "flex",
+    justifyContent: "center"
   },
   subtitle:{
     color: "#fff",
     fontWeight: "bold",
     textAlign: "center",
-    paddingTop: 5,
+    fontSize: 12
   },
   iconContainer: {
     position: "absolute",
