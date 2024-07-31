@@ -59,8 +59,8 @@ const Slider: React.FC<SliderProps> = ({ data }) => {
             <View style={styles.contentContainer}>
               <View style={styles.textContainer}>
                 <Text style={styles.title}>{item.title}</Text>
-                <TouchableOpacity onPress={() => Alert.alert("Clicked", 'asasas')}>
-                  <Text style={styles.button}>{item.button}</Text>
+                <TouchableOpacity style={styles.button} onPress={() => Alert.alert("Clicked", 'asasas')}>
+                  <Text style={styles.subtitle}>{item.button}</Text>
                 </TouchableOpacity>
               </View>
               <Image source={require("@/assets/images/nurse.png")}/>
@@ -116,6 +116,8 @@ const styles = StyleSheet.create({
     height: 35,
     borderRadius: 20,
     backgroundColor: Colors.light.green,
+  },
+  subtitle:{
     color: "#fff",
     fontWeight: "bold",
     textAlign: "center",
