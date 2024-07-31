@@ -1,5 +1,4 @@
 import { Image, SafeAreaView, StyleSheet, View } from "react-native";
-import { ThemedView } from "@/components/ThemedView";
 import React from "react";
 import { Stack } from "expo-router";
 import { Colors } from "@/constants/Colors";
@@ -14,12 +13,12 @@ const Start = () => {
           headerShadowVisible: false,
         }}
       />
-      <ThemedView style={styles.themedView}>
+      <View style={styles.themedView}>
         <Image
-          source={require("@/assets/images/LogoApp.png")}
+          source={require("@/assets/images/LogoappLogo.png")}
           style={styles.logo}
         />
-      </ThemedView>
+      </View>
     </SafeAreaView>
   );
 };
@@ -27,10 +26,10 @@ const Start = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: Colors.light.background,
+    backgroundColor: Colors.light.green,
   },
   headerStyle: {
-    backgroundColor: Colors.light.background,
+    backgroundColor: Colors.light.green,
   },
   themedView: {
     flex: 1,
@@ -38,7 +37,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
-    width: 130,
+    width: 200,
     height: 140,
     resizeMode: "contain",
   },

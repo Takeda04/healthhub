@@ -200,13 +200,14 @@ const DoctorDetailScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: Colors.light.background,
   },
   header: {
     flexDirection: "row",
     alignItems: "center",
     padding: 16,
+    flexGrow: 1
   },
   backButton: {
     marginRight: 16,
@@ -279,9 +280,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: Colors.light.green,
-    width: 46,
+    width: 50,
     height: 64
-
   },
   selectedDateButton: {
     backgroundColor: Colors.light.green,
@@ -297,7 +297,7 @@ const styles = StyleSheet.create({
     color: Colors.light.black,
     textAlign: "center",
     fontWeight: "bold",
-    marginTop: 10
+    marginTop: 5
   },
   selectedDateText: {
     color: Colors.light.white,
@@ -316,7 +316,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.light.green,
-    width: "23%"
+    width: "30%"
   },
   selectedTimeButton: {
     backgroundColor: Colors.light.green,
@@ -334,6 +334,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     padding: 16,
+    bottomTop: "auto"
   },
   chatButton: {
     flex: 1,
