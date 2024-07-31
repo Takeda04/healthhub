@@ -10,10 +10,15 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 import { CardData } from "@/types/types";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "expo-router";
-import React from "react";
+import React, { FC } from "react";
 import { Alert, SafeAreaView, ScrollView, StyleSheet } from "react-native";
 
-const Main = () => {
+import { IDoctorData } from "@/types/types";
+
+interface Props {
+  doctors: IDoctorData[];
+}
+const Main: FC<Props> = ({doctors}) => {
   const backgroundColor = useThemeColor({}, "background");
   const navigation = useNavigation();
 
@@ -60,11 +65,11 @@ const Main = () => {
           {doctors.map((doctor, index) => (
             <DoctorCard
               key={index}
-              image={doctor.image}
-              name={doctor.name}
+              image={doctor.avatar}
+              name={doctor.fullName}
               specialization={doctor.specialization}
               rating={doctor.rating}
-              distance={doctor.distance}
+              distance={"5.0"}
             />
           ))}
         </ScrollView>

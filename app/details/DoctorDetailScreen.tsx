@@ -1,4 +1,5 @@
 //@ts-nocheck
+
 import React, { useState } from "react";
 import {
   View,
@@ -13,12 +14,16 @@ import { Ionicons } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import { format } from "date-fns";
+import { IDoctorData } from "@/types/types";
 
 type RootStackParamList = {
-  DoctorDetailScreen: { doctor: any };
+  DoctorDetailScreen: { doctor: IDoctorData };
 };
 
-type DoctorDetailScreenRouteProp = RouteProp<RootStackParamList, 'DoctorDetailScreen'>;
+type DoctorDetailScreenRouteProp = RouteProp<
+  RootStackParamList,
+  "DoctorDetailScreen"
+>;
 
 const DoctorDetailScreen = () => {
   const navigation = useNavigation();
@@ -88,32 +93,35 @@ const DoctorDetailScreen = () => {
       </View>
 
       <View style={styles.doctorInfo}>
-        <Image source={{ uri: doctor.image }} style={styles.doctorImage} />
+        <Image source={{ uri: doctor.avatar }} style={styles.doctorImage} />
         <View style={styles.doctorDetails}>
-          <Text style={styles.doctorName}>{doctor.name}</Text>
+          <Text style={styles.doctorName}>{doctor.fullName}</Text>
           <Text style={styles.doctorSpecialization}>
             {doctor.specialization}
           </Text>
           <View style={styles.ratingDistance}>
-            <Text style={styles.rating}>
-              <Ionicons name="star" size={16} color={Colors.light.green} />{" "}
-              {doctor.rating}
-            </Text>
+            <View style={styles.rating_box}>
+              <Text style={styles.rating}>
+                <Ionicons name="star" size={16} color={Colors.light.green} />{" "}
+                {doctor.rating}
+              </Text>
+            </View>
+
             <Text style={styles.distance}>
               <Ionicons
                 name="location-outline"
                 size={18}
                 color={Colors.light.primary}
               />{" "}
-              {doctor.distance}
+              {"3.5km"}
             </Text>
           </View>
         </View>
       </View>
 
       <View style={styles.aboutSection}>
-        <Text style={styles.sectionTitle}>About</Text>
-        <Text style={styles.aboutText}>{doctor.about}</Text>
+        <Text style={styles.sectionTitle}>Doktor haqida</Text>
+        <Text style={styles.aboutText}>{doctor.description}</Text>
       </View>
 
       <View style={styles.dateSection}>
@@ -191,7 +199,7 @@ const DoctorDetailScreen = () => {
           onPress={handleBookAppointment}
           style={styles.bookButton}
         >
-          <Text style={styles.bookButtonText}>Book Appointment</Text>
+          <Text style={styles.bookButtonText}>Joy band qilish</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -207,7 +215,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     padding: 16,
-    flexGrow: 1
+    flexGrow: 1,
   },
   backButton: {
     marginRight: 16,
@@ -243,15 +251,28 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginTop: 8,
+    gap: 8,
   },
   rating: {
     fontSize: 14,
     color: Colors.light.black,
     marginRight: 8,
   },
+  rating_box: {
+    width: 50,
+    height: 25,
+    backgroundColor: Colors.light.lineColor,
+    borderRadius: 5,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 5,
+  },
   distance: {
     fontSize: 14,
     color: Colors.light.black,
+
   },
   aboutSection: {
     padding: 16,
@@ -281,7 +302,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.light.green,
     width: 50,
-    height: 64
+    height: 64,
   },
   selectedDateButton: {
     backgroundColor: Colors.light.green,
@@ -290,24 +311,23 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: Colors.light.green,
     textAlign: "center",
-
   },
   dateText: {
     fontSize: 16,
     color: Colors.light.black,
     textAlign: "center",
     fontWeight: "bold",
-    marginTop: 5
+    marginTop: 5,
   },
   selectedDateText: {
     color: Colors.light.white,
   },
   timeSection: {
-    padding: 16,
+    // padding: 10,
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
-    alignItems :"center"
+    alignItems: "center",
   },
   timeButton: {
     marginRight: 12,
@@ -316,7 +336,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     borderWidth: 1,
     borderColor: Colors.light.green,
-    width: "30%"
+    width: 98,
   },
   selectedTimeButton: {
     backgroundColor: Colors.light.green,
@@ -325,7 +345,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: Colors.light.black,
     textAlign: "center",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   selectedTimeText: {
     color: Colors.light.white,
@@ -334,7 +354,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     padding: 16,
-    bottomTop: "auto"
+    bottomTop: "auto",
   },
   chatButton: {
     flex: 1,

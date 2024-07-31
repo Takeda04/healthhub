@@ -8,11 +8,12 @@ import HeadCategory from "@/components/headcategory";
 import SearchInput from "@/components/search";
 import TopDoctors from "@/components/top/topDoctors";
 import { Colors } from "@/constants/Colors";
-import  {doctors} from "@/constants/data";
 import { useThemeColor } from "@/hooks/useThemeColor";
+import { IDoctorData } from "@/types/types";
 import { Ionicons } from "@expo/vector-icons";
-import { useNavigation } from "expo-router";
-import React from "react";
+import { useNavigation, useRouter } from "expo-router";
+import axios from 'axios';
+import React, { useEffect, useState } from "react";
 import {
   Alert,
   SafeAreaView,
@@ -21,17 +22,57 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
+import { doctors } from "@/constants/data";
+import Start from "./start";
+
+const fetchData = async (url: string, options = {}) => {
+  try {
+    const response = await axios.get(url, options);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error;
+  }
+};
 
 const Doctors = () => {
   const backgroundColor = useThemeColor({}, "background");
   const navigation = useNavigation();
+  const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(true);
+  const [doktors, setDoctors] = useState<IDoctorData[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      try {
+        const doctorsList = await fetchData('https://med-production.up.railway.app/api/v1/doctors');
+        setDoctors(doctorsList);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDoctors();
+  }, [router]);
 
   const navigateToDoctorsList = () => {
     Alert.alert("Doctors List", "Redirecting to doctors list");
   };
+
   const goBack = () => {
     navigation.goBack();
   };
+
+  if (loading) {
+    return <Start/>;
+  }
+
+  if (error) {
+    return <Text>Error fetching doctors list: {error}</Text>;
+  }
 
   return (
     <SafeAreaView
@@ -42,17 +83,19 @@ const Doctors = () => {
       }}
     >
       <ScrollView>
-        <ThemedView style={styles.header}>
-          <TouchableOpacity onPress={goBack} style={styles.backButton}>
-            <Ionicons
-              name="arrow-back-outline"
-              size={24}
-              color={Colors.light.black}
-            />
-          </TouchableOpacity>
-
-          <ThemedText style={styles.header_text}>Doktorni toping</ThemedText>
-        </ThemedView>
+      <ThemedView style={styles.header}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.backButton}
+        >
+          <Ionicons
+            name="arrow-back-outline"
+            size={24}
+            color={Colors.light.black}
+          />
+        </TouchableOpacity>
+        <Text style={styles.headerText}>Doktorni toping</Text>
+      </ThemedView>
         <SearchInput />
         <HeadCategory
           title="Kategoriyalar"
@@ -70,15 +113,15 @@ const Doctors = () => {
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.scrollViewContent}
         >
-          {doctors.map((doctor) => (
+          {doktors.map((doctor) => (
             <TopDoctors
-            key={doctor.id}
-            name={doctor.name}
-            image={doctor.image}
-            distance={doctor.distance}
-            specialization={doctor.specialization}
-            rating={doctor.rating}
-            onPress={() => navigation.navigate(doctor.link, { doctor })}
+              key={doctor.id}
+              name={doctor.fullName}
+              image={doctor.avatar}
+              distance={"3.5km"}
+              specialization={doctor.specialization}
+              rating={doctor.rating}
+              onPress={() => navigation.navigate('details/DoctorDetailScreen', { doctor })}
             />
           ))}
         </ScrollView>
@@ -110,7 +153,7 @@ const Doctors = () => {
           onLinkPress={navigateToDoctorsList}
         />
         <ThemedText>
-
+          {/* Additional content here */}
         </ThemedText>
       </ScrollView>
     </SafeAreaView>
@@ -126,12 +169,18 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   header: {
-    marginLeft: -100,
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
+
+      flexDirection: "row",
+      alignItems: "center",
+      padding: 16,
+      flexGrow: 1,
+    },
+    headerText: {
+      fontSize: 20,
+      fontWeight: "bold",
+      color: Colors.light.black,
+    },
+
   header_text: {
     fontSize: 20,
     fontWeight: "bold",
@@ -140,7 +189,7 @@ const styles = StyleSheet.create({
     marginLeft: 50,
   },
   backButton: {
-    marginRight: 30,
+    marginRight: 16,
   },
 });
 

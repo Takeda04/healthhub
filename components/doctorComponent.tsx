@@ -26,7 +26,7 @@ const DoctorCard: React.FC<DoctorCardProps> = ({
       <View style={styles.infoContainer}>
         <View style={styles.rating_box}>
           <Ionicons
-            name="star-outline"
+            name="star"
             size={12}
             style={{
               color: Colors.light.green,

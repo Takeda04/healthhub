@@ -59,7 +59,7 @@ const Slider: React.FC<SliderProps> = ({ data }) => {
             <View style={styles.contentContainer}>
               <View style={styles.textContainer}>
                 <Text style={styles.title}>{item.title}</Text>
-                <TouchableOpacity style={styles.button} onPress={() => Alert.alert("Clicked", 'asasas')}>
+                <TouchableOpacity style={styles.button} onPress={() => Alert.alert("Kuting!!!", 'Loyiha ustida ishlanmoqda')}>
                   <Text style={styles.subtitle}>{item.button}</Text>
                 </TouchableOpacity>
               </View>
