@@ -1,5 +1,9 @@
 Medical Services Project - Uzbekistan
 
+Our Backend repository link:
+
+https://github.com/bahtibek-an/med
+
 Welcome to the Medical Services Project for Uzbekistan! This project aims to make healthcare services more accessible and efficient for people in Uzbekistan. Utilizing AI technology, the project provides a virtual doctor to assist users in diagnosing health issues and finding the best medical services.
 
 Table of Contents
@@ -24,24 +28,16 @@ To install and run this project locally, follow these steps:
 
 Clone the repository:
 
-sh
 Copy code
-git clone https://github.com/yourusername/medical-services-uzbekistan.git
-Navigate to the project directory:
+git clone https://github.com/Takeda04/healthhub/
 
-sh
-Copy code
-cd medical-services-uzbekistan
-Install dependencies:
 
-sh
 Copy code
 npm install
 Start the application:
 
-sh
 Copy code
-npm start
+npm run start
 Usage
 Once the application is up and running, you can use the following features:
 
