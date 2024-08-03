@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "HealthHub",
-    "slug": "uzdok",
+    "slug": "healthhub2",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -39,8 +39,9 @@
         "origin": false
       },
       "eas": {
-        "projectId": "7e3de334-8e71-46ee-8bc2-0cd9e801350a"
+        "projectId": "f9b0a526-c70c-4ec5-92ba-a94d43855117"
       }
-    }
+    },
+    "owner": "detakedawwx"
   }
 }

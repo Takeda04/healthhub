@@ -31,6 +31,7 @@ export default function Index() {
         setDoctors(doctorsList);
       } catch (error) {
         setError(error.message);
+        console.error('Error fetching doctors:', error);
       } finally {
         setLoading(false);
       }
@@ -38,6 +39,8 @@ export default function Index() {
 
     fetchDoctors();
   }, [router]);
+
+  console.log(doctors)
 
   if (loading) {
     return <Start />;
