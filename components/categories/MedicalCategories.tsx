@@ -4,8 +4,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '@/constants/Colors';
 import { ThemedView } from '@/components/ThemedView';
 import { useThemeColor } from '@/hooks/useThemeColor';
-import { useNavigation, useRouter } from 'expo-router';
-import { ExpoRouter } from 'expo-router/types/expo-router';
+import { useRouter } from 'expo-router';
+
 
 // Define the icon names correctly
 type IconName = keyof typeof Ionicons.glyphMap;
@@ -19,9 +19,9 @@ interface Category {
 
 const categories: Category[] = [
   { id: '1', icon: 'git-network-outline', text: 'Doktor', link: "screens/doctor" },
-  { id: '2', icon: 'leaf-outline', text: 'Dorixona',  link: "screens/pharmacy" },
-  { id: '3', icon: 'business-outline', text: 'Klinika', link: "screens/clinic" },
-  { id: '4', icon: 'sparkles-outline', text: 'AI Doktor', link: "screens/ai-doctor" },
+  { id: '2', icon: 'leaf-outline', text: 'Dorixona',  link: "" },
+  { id: '3', icon: 'business-outline', text: 'Klinika', link: "" },
+  { id: '4', icon: 'sparkles-outline', text: 'AI Doktor', link: "" },
  
 ];
 
@@ -35,8 +35,12 @@ const MedicalCategories = () => {
   const visibleCategories = showAll ? categories : categories.slice(0, 3);
   const navigate = useRouter()
 
-  const navigateToDoctorsList = (link: ExpoRouter.Href) => {
-    navigate.push(link)
+  const navigateToDoctorsList = (link: any) => {
+    if(link !== ''){
+      navigate.push(link)
+    }else{
+      Alert.alert("Diqqat!!!", "Hozircha loyihaning doktorlar qisminigina ishlata olasiz!");
+    }
   };
 
   const toggleCategories = () => {
