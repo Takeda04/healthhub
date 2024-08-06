@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "HealthHub",
-    "slug": "healthhub2",
+    "slug": "healthhub",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -12,36 +12,14 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.detakedawwx.uzdok"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.detakedawww.healthhub"
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/icon.png"
-    },
-    "plugins": [
-      "expo-router"
-    ],
-    "experiments": {
-      "typedRoutes": true
-    },
     "extra": {
-      "router": {
-        "origin": false
-      },
       "eas": {
-        "projectId": "f9b0a526-c70c-4ec5-92ba-a94d43855117"
+        "projectId": "c37f6833-be7a-4bd9-a949-a455f9e11a25"
       }
     },
-    "owner": "detakedawwx"
+    "owner": "deolimjonwwx",
+    "android": {
+      "package": "com.deolimjonwwx.healthhub"
+    }
   }
 }
